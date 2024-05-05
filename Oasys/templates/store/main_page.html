@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <div>
+    <section class="block-image">
+      <img src="{% static 'img/block.svg' %}" />
+    </section>
+  </div>
+
+  <div>
+    {% include 'about/about.html' %}
+  </div>
+
+  <div>
+    <section id="services" class="services">
+      <h2 class="section-title-about-title">Услуги</h2>
+      <ul class="services-list">
+        {% for item in page_obj %}
+          <li class="services-item">
+            <span class="image"><img src="{{ item.image.url }}" alt="" /></span>
+            <a href="{% url 'store:item_details' item.slug %}">
+              <h2 style="color: white">{{ item.title }}</h2>
+              <div class="services-desc">
+                <p>{{ item.description|truncatechars:150 }}</p>
+              </div>
+              <a href="{% url 'store:item_details' item.slug %}" target="_blank" class="hero-link">Подробнее</a>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+
+  <section class="form">
+    <div class="container-form">
+      <h2 class="section-title-about-title forma-block">Подписаться на новости</h2>
+      <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="forma">
+        <input placeholder="Электронная почта" spellcheck="false" name="email" type="email" value="" class="email" />
+        <button class="btn-form-button" type="submit">Подписаться</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="#accommodation" class="feedback">
+    <div class="feed-container">
+      <h2 class="section-title-about-title">Отзывы</h2>
+      <ul class="feedback-list">
+        <li class="feedback-item">
+          <img src="{% static 'img/feed1.svg' %}" class="feed-img" alt="Отзывы" />
+          <a class="feed-text">Таким образом рамки и место обучения кадров играет важную роль в формировании новых предложений. Таким образом рамки и место.</a>
+          <a class="feed-name">Василина М.</a>
+        </li>
+        <li class="feedback-item">
+          <img src="{% static 'img/feed2.svg' %}" class="feed-img" alt="Отзывы" />
+          <a class="feed-text">Таким образом рамки и место обучения кадров играет важную роль в формировании новых предложений. Таким образом рамки и место.</a>
+          <a class="feed-name">Василина М.</a>
+        </li>
+        <li class="feedback-item">
+          <img src="{% static 'img/feed3.svg' %}" class="feed-img" alt="Отзывы" />
+          <a class="feed-text">Таким образом рамки и место обучения кадров играет важную роль в формировании новых предложений. Таким образом рамки и место.</a>
+          <a class="feed-name">Василина М.</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+{% endblock %}

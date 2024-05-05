@@ -1,0 +1,25 @@
+{% load static %}
+<footer class="footer">
+  <nav class="header-nav">
+    <ul class="header-list">
+      <li class="header-list-item">
+        <a href="{% url 'store:home' %}" ><img src="{% static 'img/logo.svg' %}" class="header-logo1" alt="logo" /></a>
+      </li>
+      <li class="header-list-item">
+        <a href="#about-us" class="header-link">О компании</a>
+      </li>
+      <li class="header-list-item">
+        <a href="#services" class="header-link">Услуги</a>
+      </li>
+      <li class="header-list-item">
+        <a href="#accommodation" class="header-link">Отзывы</a>
+      </li>
+      <li class="header-list-item">
+        <a class="header-link" {% if view_name == 'store:contact' %}active{% endif %} href="{% url 'store:contact' %}">Контакты</a>
+      </li>
+      <li class="header-list-item">
+        <a href="tel:+79997777777" class="address-form">+7 (999) 777-77-77</a>
+      </li>
+    </ul>
+  </nav>
+</footer>

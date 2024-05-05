@@ -1,0 +1,33 @@
+{% load static %}
+  <nav class="header-nav">
+    <a href="{% url 'store:home' %}" ><img src="{% static 'img/logo.svg' %}" class="header-logo1" alt="logo" /></a>
+    <div class="header-block">
+      <ul class="header-list">
+
+        <li class="header-list-item">
+          <a href="#services" class="header-link">Услуги</a>
+        </li>
+
+        <li class="header-list-item">
+          <a class="header-link" {% if view_name == 'store:price' %}active{% endif %} href="{% url 'store:price' %}">Цены</a>
+        </li>
+
+        <li class="header-list-item">
+          <a class="header-link" {% if view_name == 'store:contact' %}active{% endif %} href="{% url 'store:contact' %}">Контакты</a>
+        </li>
+
+        <li class="header-list-item">
+          <a class="header-link" {% if view_name == 'users:profile' %}active{% endif %} href="{% url 'users:profile' %}"><img src="{% static 'img/people.svg' %}" alt="people" /></a>
+        </li>
+
+        <li class="header-list-item">
+          <a href="#" class="header-link"><img src="{% static 'img/like.svg' %}" class="" alt="like" /></a>
+        </li>
+
+        <li class="header-list-item">
+          <a class="header-link" {% if view_name == 'cart:cart' %}active{% endif %} href="{% url 'cart:cart' %}"><img src="{% static 'img/basket.svg' %}" class="" alt="basket" /></a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
